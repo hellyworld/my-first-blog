@@ -1,12 +1,19 @@
 from django import forms
-
-from .models import Post
+from .models import Post, Comment
 
 
 class PostForm(forms.ModelForm):
 
 
-# De aici modifici cotinutul afisat in PostForm clasa Meta!
+# Aici modifici structura Posturilor
     class Meta:
         model = Post
-        fields = ('title', 'text', 'author', 'created_date', 'published_date')
+        fields = ('title', 'text', 'author')
+
+
+# Aici modifici structura comentariilor
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = ('author', 'text',)
